@@ -28,6 +28,7 @@ void printStars(int count) {
 }
 
 void printTriangle(int n) {
+    if (n <= 0 ) return;
     printTriangle(n - 1);
     printStars(n);
     printf("\n");
