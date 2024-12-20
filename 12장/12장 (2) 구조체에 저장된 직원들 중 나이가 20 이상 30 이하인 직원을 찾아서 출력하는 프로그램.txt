@@ -25,19 +25,19 @@
 
 ================================================================================
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
 
 // 직원 구조체 정의
-struct employee {
+typedef struct {
     int number;
     char name[21];  // 이름 최대 20글자 + null 문자
     char phone[31]; // 전화번호 최대 30글자 + null 문자
     int age;
-};
+} employee;
 
 int main() {
-    struct employee employees[10]; // 최대 10명의 직원
+    employee employees[10]; // 최대 10명의 직원
     int n;
 
     // 직원 수 입력

@@ -25,21 +25,22 @@
 
 ======================================================================================
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define MAX_STUDENTS 100
 
 // 학생 정보를 저장할 구조체 정의
-struct student {
+typedef struct {
     int id;
     char name[50];
     float height;
     float weight;
-};
+}student;
 
 int main() {
     int n; // 학생 수
-    struct student students[MAX_STUDENTS];
+    student students[MAX_STUDENTS];
     float totalHeight = 0, totalWeight = 0;
 
     // 학생 수 입력

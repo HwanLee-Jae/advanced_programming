@@ -1,14 +1,13 @@
-#include <stdio.h>
 문자열을 입력받아, 그 문자열에서 변환활 기존 문자와 새로운 문자를 입력받은 뒤 변환하는 프로그램을 작성해보자.
 
 # 입출력 예시
 Input: have_a_nice_day
 Change letter: a
 New letter: #
-h#ve_#_nice_d#y
+h#ve_#_nice_d#y 
 
 ===========================================================================
-
+#include <stdio.h>
 #include <string.h>
 
 int main() {

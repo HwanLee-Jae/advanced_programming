@@ -8,7 +8,7 @@ cHOSUN_uNIVERSITY
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+int main(){	
 	char str[256];
 	scanf("%s", str);
 	int len = strlen(str);
