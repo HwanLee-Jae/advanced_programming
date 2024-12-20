@@ -1,0 +1,39 @@
+#include <stdio.h>
+문자열을 입력받아, 그 문자열에서 변환활 기존 문자와 새로운 문자를 입력받은 뒤 변환하는 프로그램을 작성해보자.
+
+# 입출력 예시
+Input: have_a_nice_day
+Change letter: a
+New letter: #
+h#ve_#_nice_d#y
+
+===========================================================================
+
+#include <string.h>
+
+int main() {
+    char str[256];
+    char change;
+    char new_char;
+
+    printf("Input: ");
+    scanf("%s", str);
+
+    int len = strlen(str);
+
+    printf("Change letter: ");
+    scanf(" %c", &change);
+
+    printf("New letter: ");
+    scanf(" %c", &new_char);
+
+    for (int i = 0; i < len; i++) {
+        if (str[i] == change) {
+            str[i] = new_char;
+        }
+    }
+
+    printf("%s\n", str);
+
+    return 0;
+}

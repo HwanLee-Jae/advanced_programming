@@ -1,0 +1,77 @@
+사용자로 부터 양수를 입력받아 문자열로 변경하여 출력해주는 다음 프로그램을 완성하시오.
+(단, C언어에서 제공해주는 itoa, snprintf 등의 함수들은 사용하지 말아주세요.)
+
+#include 
+
+#define MAX_STR 255
+
+int my_itoa(unsigned int pn, char *str) {
+// 여기에 함수 내용 코딩
+}
+
+int main() {
+    unsigned int pn;
+    char str[MAX_STR];
+
+    printf("Input a positive number:");
+    scanf("%u", &pn);
+
+    my_itoa(pn, str);
+    printf("Converted string: %s", str);
+}
+
+# 입출력 예시 1
+Input a positive number:12
+Converted string: 12
+
+# 입출력 예시 2
+Input a positive number:987
+Converted string: 987
+
+# 입출력 예시 3
+Input a positive number:5465
+Converted string: 5465
+
+================================================================
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+#define MAX_STR 255
+
+int my_itoa(unsigned int pn, char* str) {
+    int i = 0;
+
+    if (pn == 0) {
+        str[i++] = '0';
+    }
+    else {
+        while (pn > 0) {
+            str[i++] = (pn % 10) + '0'; // 각 자릿수를 문자로 변환
+            pn /= 10;                  // 다음 자리로 이동
+        }
+    }
+
+    str[i] = '\0'; // 문자열 종료
+
+    for (int j = 0, k = i - 1; j < k; j++, k--) {
+        char temp = str[j];
+        str[j] = str[k];
+        str[k] = temp;
+    }
+
+    return 0; // 성공적으로 수행
+}
+
+int main() {
+    unsigned int pn;
+    char str[MAX_STR];
+
+    printf("Input a positive number: ");
+    scanf("%u", &pn);
+
+    my_itoa(pn, str);
+    printf("Converted string: %s\n", str);
+
+    return 0;
+}

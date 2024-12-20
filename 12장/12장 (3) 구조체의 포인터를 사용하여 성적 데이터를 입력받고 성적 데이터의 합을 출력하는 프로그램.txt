@@ -1,0 +1,59 @@
+학생의 이름(최대 12글자), 운영체제 성적, 데이터베이스 성적을 가지는 구조체를 만들고 최대 10명의 성적을 기록할 수 있는 배열을 생성 후 학생의 수를 입력받는다. 
+이후 구조체의 포인터를 사용하여 순서대로 입력받고 학생의 이름, 운영체제와 데이터베이스 성적의 합을 출력하는 프로그램을 작성해주세요.
+(단, 구조체의 배열을 사용하면 감점 있습니다.)
+
+# 입출력 예시 1
+2
+홍길동1 90 80
+홍길동2 87 94
+홍길동1 170
+홍길동2 181
+
+# 입출력 예시 2
+3
+홍길동1 90 98
+홍길동2 90 80
+홍길동3 85 94
+홍길동1 188
+홍길동2 170
+홍길동3 179
+
+# 입출력 예시 3
+2
+철수 87 90
+영희 93 97
+철수 177
+영희 190
+
+=========================================================================================================
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h> // malloc과 free를 위한 헤더 파일
+
+typedef struct {
+    char name[21];
+    int osscore;
+    int dbscore;
+} student;
+
+int main() {
+    int n;
+
+    // 학생 수 입력
+    scanf("%d", &n);
+
+    // 동적 메모리 할당
+    student* students = (student*)malloc(n * sizeof(student));
+    
+    // 학생 정보 입력
+    for (int i = 0; i < n; i++) {
+        scanf("%s %d %d", students[i].name, &students[i].osscore, &students[i].dbscore);
+    }
+
+    // 학생 이름과 점수 합계 출력
+    for (int i = 0; i < n; i++) {
+        int sum = students[i].osscore + students[i].dbscore;
+        printf("%s %d\n", students[i].name, sum);
+    }
+}

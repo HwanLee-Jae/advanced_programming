@@ -1,0 +1,20 @@
+문자열을 입력받아, 역순으로 출력하는 프로그램을 작성하시오.
+(단, scanf으로 입력을 받는다.)
+
+# 입출력 예시
+have_a_nice_day
+yad_ecin_a_evah
+========================================
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+	char str[256];
+	scanf("%[^\n]s ", str);
+	int len = strlen(str);
+	for (int i = len-1; i >= 0; i --){
+		printf("%c", str[i]);
+	}
+	printf("\n");
+}
+========================================

@@ -1,0 +1,45 @@
+사용자로 부터 문자열을 입력받은 후 해당 문자열의 길이가 세로의 길이인 직각 삼각형을 출력해주세요.
+
+# 입출력 예시 1
+hello
+h
+he
+hel
+hell
+hello
+
+# 입출력 예시 2
+test 
+t
+te
+tes
+test
+
+# 입출력 예시 3
+hi
+h
+hi
+
+===============================================================
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int k;
+    char str[256];
+
+    scanf("%s", str);
+    int lenght = strlen(str);
+    for (int i = 1; i < lenght+1; i++) {
+        for (int j = 0; j < i; j++) {
+            printf("%c", str[j]);
+        }
+        printf("\n");
+        if (i == lenght) {
+            break;
+        }
+    }
+
+}

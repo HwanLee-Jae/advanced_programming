@@ -1,0 +1,46 @@
+A, B, C, D, F를 열거 상수로 가지는 enum grade를 정의하고 열거 상수 자료형을 정의한 후 
+사용자로 부터 평균점수를 입력받아 점수가 90이상 인 경우 열거 변수에 A, 80이상인 경우 
+B, 70이상인 경우 C, 60이상인 경우 D, 미만인 경우 F를 저장한다. 이후 변수의 값에 따라 
+A, B, C, D, F를 출력하는 프로그램을 작성하시오.
+
+# 예시 입력 1
+93
+
+# 예시 출력 1
+A
+
+# 예시 입력 2
+65
+
+# 예시 출력 2
+D
+===========================================================
+#include <stdio.h>
+#include <stdlib.h>
+enum grade {A,B,C,D,F};
+
+int main(){
+	int avg;
+	int grade;
+	scanf("%d", &avg);
+	if (avg >= 90){
+		grade = A;
+		printf("A");
+	}
+	else if(80 <= avg && avg < 90){
+		grade = B;
+		printf("B");
+	}
+	else if (70 <= avg && avg < 80){
+		grade = C;
+		printf("C");
+	}
+	else if (60 <= avg && avg < 70){
+		grade = D;
+		printf("D");
+	}
+	else{
+		grade = F;
+		printf("F");
+	}
+}

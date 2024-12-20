@@ -1,0 +1,63 @@
+학생들의 수를 입력받고 구조체를 사용하여 학생의 번호, 이름, 키, 몸무게를 저장하고 키와 몸무게의 평균을 출력하는 프로그램을 작성하시오.
+(학생들의 최대 수는 100명으로 한다.)
+
+# 입출력 예시 1
+2
+1 홍길동 180 80
+2 김철수 175 73
+177.500000 76.500000
+
+# 입출력 예시 2
+5
+1 김철수 180 75
+2 김영희 167 60
+3 김미영 185 70
+4 이옥순 170 65
+5 이영자 167 50
+173.800003 64.000000
+
+# 입출력 예시 3
+3
+1 김희수 187 90
+2 이철수 176 85
+3 이희애 175 70
+179.333328 81.666664
+
+======================================================================================
+
+#include <stdio.h>
+
+#define MAX_STUDENTS 100
+
+// 학생 정보를 저장할 구조체 정의
+struct student {
+    int id;
+    char name[50];
+    float height;
+    float weight;
+};
+
+int main() {
+    int n; // 학생 수
+    struct student students[MAX_STUDENTS];
+    float totalHeight = 0, totalWeight = 0;
+
+    // 학생 수 입력
+    scanf("%d", &n);
+
+    // 학생 정보 입력
+    for (int i = 0; i < n; i++) {
+        scanf("%d %s %f %f", &students[i].id, students[i].name, &students[i].height, &students[i].weight);
+        totalHeight += students[i].height;
+        totalWeight += students[i].weight;
+    }
+
+    // 평균 계산
+    float avgHeight = totalHeight / n;
+    float avgWeight = totalWeight / n;
+
+    // 결과 출력
+    printf("%.6f %.6f\n", avgHeight, avgWeight);
+
+    return 0;
+}

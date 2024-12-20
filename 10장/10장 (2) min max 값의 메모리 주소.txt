@@ -1,0 +1,88 @@
+Main 함수를 확인하고, 배열에서 제일 작은 요소 값의 메모리 주소를 반환하는 min함수와, 
+제일 큰 요소 값의 메모리 주소를 반환하는 max함수를 구현하라.
+(같은 수가 입력되지 않는다고 가정하자.)
+Main 함수는 수정 불가하다.
+
+//여기에 추가 코드 작성
+int main(){
+ int array[64];
+ int *ptr;
+ int size;
+ scanf("%d", &size);
+ if( size <= 64){
+  for( int i = 0 ; i < size; i++){ 
+   scanf("%d", array+i); 
+  }
+  ptr = min( array, &array[size-1]);
+  *ptr = INT_MIN;
+  ptr = max( &array[0], array+size-1);
+  *ptr = INT_MAX;
+  for( int i = 0 ; i < size; i++){ 
+   printf("%d ", array[i]); 
+  }
+  printf("\n");
+ }
+}
+
+입출력 예시 1:
+6
+12 56 87 12 87 -21
+12 56 2147483647 12 87 -2147483648
+
+입출력 예시 2:
+10
+12 65 14 44 12 55 14 -5 -34 51
+12 2147483647 14 44 12 55 14 -5 -2147483648 51
+
+=====================================================
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <limits.h>
+
+int* min(int array[], int* address) {
+	int* min_ptr = &array[0];
+	int length = address - array + 1; // 배열 길이 계산
+
+	for (int i = 0; i < length; i++) {
+		if (array[i] < *min_ptr) {
+			min_ptr = &array[i];
+		}
+	}
+
+	return min_ptr; // 최솟값의 주소 반환
+}
+
+int* max(int* address, int array[]) {
+	int* max_ptr = address;
+	int length = array - address + 1; // 배열 길이 계산
+
+	for (int i = 0; i < length; i++) {
+		if (address[i] > *max_ptr) {
+			max_ptr = &address[i];
+		}
+	}
+
+	return max_ptr; // 최댓값의 주소 반환
+}
+
+//여기에 추가 코드 작성
+int main() {
+	int array[64];
+	int* ptr;
+	int size;
+	scanf("%d", &size);
+	if (size <= 64) {
+		for (int i = 0; i < size; i++) {
+			scanf("%d", array + i);
+		}
+		ptr = min(array, &array[size - 1]);
+		*ptr = INT_MIN;
+		ptr = max(&array[0], array + size - 1);
+		*ptr = INT_MAX;
+		for (int i = 0; i < size; i++) {
+			printf("%d ", array[i]);
+		}
+		printf("\n");
+	}
+}

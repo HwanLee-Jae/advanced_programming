@@ -1,0 +1,36 @@
+사용자로 부터 문자열과 양수를 입력받은 후 문자열을 양수만큼 오른쪽으로 rotate 시켜주는 프로그램을 완성하시오.
+
+# 입출력 예시 1
+hello 1
+ohell
+
+# 입출력 예시 2
+test 2
+stte
+
+# 입출력 예시 3
+amazing 3
+ingamaz
+
+======================================================================
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char str[255];
+	int start;
+
+	scanf("%s %d", str, &start);
+	int lenght = strlen(str);
+
+	for (int i = lenght - start; i < lenght; i++) {
+			printf("%c", str[i]);
+		}
+
+	for (int j = 0; j < lenght-start; j++) {
+		printf("%c", str[j]);
+	}
+	
+}
+
